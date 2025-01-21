@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowDetectSentiment",
+      "Effect": "Allow",
+      "Action": "comprehend:DetectSentiment",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowS3AccessForEnrichment",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::manan-data-lake-bucket",
+        "arn:aws:s3:::manan-data-lake-bucket/raw-data/*"
+      ]
+    },
+    {
+      "Sid": "AllowKinesisAccess",
+      "Effect": "Allow",
+      "Action": [
+        "kinesis:PutRecord",
+        "kinesis:PutRecords",
+        "kinesis:DescribeStream"
+      ],
+      "Resource": "arn:aws:kinesis:ap-south-1:<account-id>:stream/data-ingestion-stream"
+    }
+  ]
+}
