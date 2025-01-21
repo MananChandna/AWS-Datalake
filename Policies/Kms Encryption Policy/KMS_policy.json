@@ -1,0 +1,108 @@
+{
+    "Version": "2012-10-17",
+    "Id": "key-consolepolicy-3",
+    "Statement": [
+        {
+            "Sid": "Enable IAM User Permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:root"
+            },
+            "Action": "kms:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for Key Administrators",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:user/ProjectAdmin"
+            },
+            "Action": [
+                "kms:Create*",
+                "kms:Describe*",
+                "kms:Enable*",
+                "kms:List*",
+                "kms:Put*",
+                "kms:Update*",
+                "kms:Revoke*",
+                "kms:Disable*",
+                "kms:Get*",
+                "kms:Delete*",
+                "kms:TagResource",
+                "kms:UntagResource",
+                "kms:ScheduleKeyDeletion",
+                "kms:CancelKeyDeletion",
+                "kms:RotateKeyOnDemand"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for DataIngestionRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:role/DataIngestionRole"
+            },
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for DataProcessingRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:role/DataProcessingRole"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for DataAnalyticsRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:role/DataAnalyticsRole"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for DataEngineeringRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:role/DataEngineeringRole"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for DataScienceRole",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::522814703979:role/DataScienceRole"
+            },
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
