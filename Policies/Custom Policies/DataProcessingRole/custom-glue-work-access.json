@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:CreateJob",
+                "glue:UpdateJob",
+                "glue:DeleteJob",
+                "glue:StartJobRun",
+                "glue:GetJobRun",
+                "glue:GetJobRuns",
+                "glue:BatchStopJobRun",
+                "glue:GetCrawler",
+                "glue:CreateCrawler",
+                "glue:StartCrawler",
+                "glue:DeleteCrawler",
+                "glue:GetCrawlerMetrics"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
