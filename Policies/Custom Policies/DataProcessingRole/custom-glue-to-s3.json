@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::manan-data-lake-bucket",
+                "arn:aws:s3:::manan-data-lake-bucket/raw-data/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::manan-data-lake-bucket/cleaned-data/*",
+                "arn:aws:s3:::manan-data-lake-bucket/processed-data/*"
+            ]
+        }
+    ]
+}
