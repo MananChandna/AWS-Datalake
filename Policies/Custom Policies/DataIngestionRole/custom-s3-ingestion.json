@@ -1,0 +1,57 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowWriteAccessToRawData",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::manan-data-lake-bucket/raw-data/*"
+        },
+        {
+            "Sid": "AllowReadWriteAccessToOtherPaths",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::manan-data-lake-bucket/processed-data/*",
+                "arn:aws:s3:::manan-data-lake-bucket/cleaned-data/*",
+                "arn:aws:s3:::manan-data-lake-bucket/model-outputs/*"
+            ]
+        },
+        {
+            "Sid": "AllowListBucketOnDataLake",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::manan-data-lake-bucket"
+        },
+        {
+            "Sid": "AllowCloudWatchLogging",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Sid": "AllowKinesisStreamAccess",
+            "Effect": "Allow",
+            "Action": [
+                "kinesis:GetRecords",
+                "kinesis:GetShardIterator",
+                "kinesis:DescribeStream",
+                "kinesis:DescribeStreamSummary",
+                "kinesis:ListShards",
+                "kinesis:ListStreams"
+            ],
+            "Resource": "arn:aws:kinesis:ap-south-1:522814703979:stream/data-ingestion-stream"
+        }
+    ]
+}
