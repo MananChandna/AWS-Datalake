@@ -1,0 +1,64 @@
+{
+  "Rules": [
+    {
+      "ID": "MoveRawDataToInfrequentAccess",
+      "Filter": {
+        "Prefix": "raw-data/"
+      },
+      "Status": "Enabled",
+      "Transitions": [
+        {
+          "Days": 30,
+          "StorageClass": "STANDARD_IA"
+        },
+        {
+          "Days": 90,
+          "StorageClass": "GLACIER"
+        }
+      ],
+      "Expiration": {
+        "Days": 365
+      }
+    },
+    {
+      "ID": "MoveCleanedDataToInfrequentAccess",
+      "Filter": {
+        "Prefix": "cleaned-data/"
+      },
+      "Status": "Enabled",
+      "Transitions": [
+        {
+          "Days": 30,
+          "StorageClass": "STANDARD_IA"
+        },
+        {
+          "Days": 90,
+          "StorageClass": "GLACIER"
+        }
+      ],
+      "Expiration": {
+        "Days": 365
+      }
+    },
+    {
+      "ID": "MoveProcessedDataToInfrequentAccess",
+      "Filter": {
+        "Prefix": "processed-data/"
+      },
+      "Status": "Enabled",
+      "Transitions": [
+        {
+          "Days": 30,
+          "StorageClass": "STANDARD_IA"
+        },
+        {
+          "Days": 90,
+          "StorageClass": "GLACIER"
+        }
+      ],
+      "Expiration": {
+        "Days": 365
+      }
+    }
+  ]
+}
