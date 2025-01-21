@@ -1,0 +1,10 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "glue:StartWorkflowRun",
+      "Resource": "arn:aws:glue:ap-south-1:522814703979:workflow/RawToCleanedWorkflow"
+    }
+  ]
+}
